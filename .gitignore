@@ -49,3 +49,6 @@ nosetests.xml
 coverage.xml
 *.cover
 .pytest_cache/
+
+
+.DS_Store
