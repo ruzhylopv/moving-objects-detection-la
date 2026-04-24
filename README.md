@@ -2,14 +2,13 @@
 
 <img width="1022" height="334" alt="image" src="https://github.com/user-attachments/assets/d67c47d3-0692-4438-aae6-ac8e91b6b09e" />
 
-
 ## Overview
 
 This project implements **moving object detection in video sequences** through **background separation**, using the framework of **Robust Principal Component Analysis (RPCA)**. The core idea is to decompose a data matrix into:
 
-\[
+$$
 A = L + S
-\]
+$$
 
 where:
 
@@ -25,21 +24,21 @@ To solve this optimization problem, the project uses the **Inexact Augmented Lag
 
 The decomposition is formulated as the optimization problem:
 
-\[
+$$
 \min_{L,S} \; \|L\|_* + \lambda \|S\|_1
-\]
+$$
 
 subject to:
 
-\[
+$$
 A = L + S
-\]
+$$
 
 Where:
 
-- \(\|L\|_*\) is the **nuclear norm**, encouraging low rank,
-- \(\|S\|_1\) is the **L1 norm**, encouraging sparsity,
-- \(\lambda\) balances the two objectives.
+- $ \|L\|_* $ is the **nuclear norm**, encouraging low rank,
+- $ \|S\|_1 $ is the **L1 norm**, encouraging sparsity,
+- $ \lambda $ balances the two objectives.
 
 This convex optimization problem is solved using **IALM**.
 
@@ -51,11 +50,11 @@ This convex optimization problem is solved using **IALM**.
 
 Each video frame is vectorized and stacked as a column in matrix **A**.
 
-If each frame has \(m \times n\) pixels and there are \(t\) frames:
+If each frame has $m \times n$ pixels and there are $t$ frames:
 
-\[
+$$
 A \in \mathbb{R}^{(mn) \times t}
-\]
+$$
 
 ---
 
@@ -94,7 +93,6 @@ This enables accurate motion detection even in cluttered or noisy video sequence
 This project showcases the power of matrix decomposition for separating structured and anomalous information in visual data. By solving the RPCA problem with IALM, moving object detection becomes both mathematically elegant and practically effective.
 
 ## Workshop Videos
-
 
 <a href="https://www.youtube.com/watch?v=FiiLMBhPKns">Workshop video by Ostap Mnykh</a> <br/>
 <a href="https://www.youtube.com/watch?v=-Qvdety7USw">Workshop video by Pavlo Ruzhylo</a> <br/>
