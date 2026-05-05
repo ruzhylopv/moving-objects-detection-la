@@ -64,9 +64,6 @@ def svd(A, tol=1e-12):
     singular_values = singular_values[mask]
     V_T = V_T[mask]
 
-    # Re-orthogonalize V with QR to fight deflation drift
-    # V, _ = np.linalg.qr(V_T.T)
-    # V_T = V.T
     V_T = gram_schmidt(V_T)
     V = V_T.T
 
