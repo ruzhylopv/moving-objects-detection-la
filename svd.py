@@ -16,7 +16,8 @@ def power_iteration(A, tol=1e-15, max_iterations=5000, initial_vector=None):
             break
         b = b_new
 
-    eigenvalue = (b @ A @ b) / (b @ b)
+    eigenvalue = (b @ A @ b) #/ (b @ b)
+    # eigenvalue = np.linalg.norm(A @ b) # == (b @ A @ b) / (b @ b)
     return eigenvalue, b
 
 
